@@ -1,17 +1,19 @@
-birdbox_width = 150;
-birdbox_depth = 60;
-birdbox_height = 40;
-birdbox_thickness = (60-46)/2;
+birdbox_width = 1500;
+birdbox_depth = 600;
+birdbox_height = 400;
+birdbox_thickness = (60-46)/2*10;
 
 
 
 // Main Birdbox
+
 open_box(
     birdbox_width,
     birdbox_depth,
     birdbox_height,
     birdbox_thickness
 );
+
 
 // First side box
 // The translate is always from the geometric center
