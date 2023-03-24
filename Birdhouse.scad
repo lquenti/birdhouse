@@ -1,11 +1,11 @@
-birdhouse();
+birdhouse(
+    150,
+    60,
+    40,
+    (60-46)/2
+);
 
-module birdhouse() {
-  outer_width = 150;
-  outer_depth = 60;
-  outer_height = 40;
-  thickness = (60-46)/2;
-  
+module birdhouse(outer_width, outer_depth, outer_height, thickness) {
   inner_width = outer_width - 2 * thickness;
   inner_depth = outer_depth - 2 * thickness;
   inner_height = outer_height - thickness; // top is open
