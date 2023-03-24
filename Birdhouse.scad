@@ -4,7 +4,7 @@ birdbox_height = 40;
 birdbox_thickness = (60-46)/2;
 
 
-/*
+
 // Main Birdbox
 open_box(
     birdbox_width,
@@ -28,7 +28,8 @@ color("#38A3A5")
         );
     
 // Second Side box
-color("#38A3A5") 
+
+color("#38A3A5") union() {
     translate([-((birdbox_width/2)+birdbox_depth/2), 0, 0])
         open_box(
             birdbox_depth,
@@ -36,9 +37,17 @@ color("#38A3A5")
             birdbox_height,
             birdbox_thickness
         );
-*/
 
-hook(20,50,20,5);
+
+    translate([-birdbox_width/2+birdbox_thickness/2, 0, birdbox_height-birdbox_thickness/2]) 
+        color("#ff0000")
+            hook(
+                birdbox_thickness,
+                birdbox_depth - 2*birdbox_thickness,
+                birdbox_height/2,
+                birdbox_thickness
+            );
+}
 
 
 module hook(inner_width, inner_depth, inner_height, thickness) {
