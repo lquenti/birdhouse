@@ -4,8 +4,7 @@ birdbox_height = 40;
 birdbox_thickness = (60-46)/2;
 
 
-
-
+/*
 // Main Birdbox
 open_box(
     birdbox_width,
@@ -13,7 +12,6 @@ open_box(
     birdbox_height,
     birdbox_thickness
 );
-
 
 // First side box
 // The translate is always from the geometric center
@@ -38,7 +36,31 @@ color("#38A3A5")
             birdbox_height,
             birdbox_thickness
         );
+*/
 
+hook(20,50,20,5);
+
+
+module hook(inner_width, inner_depth, inner_height, thickness) {
+    // We want to have a U-shape
+    
+    // For debug, let us first have a debug cube
+    // color("#ff0000") cube([inner_width, inner_depth, inner_height], center = true);
+    
+    union() {
+        // Let us put the left part of the U thingy
+        translate([-(inner_width/2+thickness/2), 0, 0])
+            cube([thickness, inner_depth, inner_height], center = true);
+        
+        // The middle part
+        translate([0, 0, (inner_width/2+thickness/2)])
+            cube([inner_width+2*thickness, inner_depth, thickness], center = true);
+        
+        // The right part analagously
+        translate([inner_width/2+thickness/2, 0, 0])
+            cube([thickness, inner_depth, inner_height], center = true);
+    }
+}
 
 
 module open_box(outer_width, outer_depth, outer_height, thickness) {
