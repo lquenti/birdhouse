@@ -18,7 +18,7 @@ open_box(
 // this means that we have to move the half birdbox width to move
 // the center of the side box to the border
 // but since we want border on border, we move it further along
-color("#38A3A5") 
+color("#38A3A5") union() {
     translate([(birdbox_width/2)+birdbox_depth/2, 0, 0])
         open_box(
             birdbox_depth,
@@ -26,6 +26,15 @@ color("#38A3A5")
             birdbox_height,
             birdbox_thickness
         );
+        
+translate([(birdbox_width/2-birdbox_thickness/2), 0, birdbox_height-birdbox_thickness/2]) 
+        hook(
+            birdbox_thickness,
+            birdbox_depth - 2*birdbox_thickness,
+            birdbox_height/2,
+            birdbox_thickness
+        );
+};
     
 // Second Side box
 
@@ -39,14 +48,13 @@ color("#38A3A5") union() {
         );
 
 
-    translate([-birdbox_width/2+birdbox_thickness/2, 0, birdbox_height-birdbox_thickness/2]) 
-        color("#ff0000")
-            hook(
-                birdbox_thickness,
-                birdbox_depth - 2*birdbox_thickness,
-                birdbox_height/2,
-                birdbox_thickness
-            );
+    translate([-(birdbox_width/2-birdbox_thickness/2), 0, birdbox_height-birdbox_thickness/2]) 
+        hook(
+            birdbox_thickness,
+            birdbox_depth - 2*birdbox_thickness,
+            birdbox_height/2,
+            birdbox_thickness
+        );
 }
 
 
