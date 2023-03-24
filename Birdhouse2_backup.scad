@@ -20,7 +20,7 @@ boxinner_z = box_z - wanddicke + spielraum;
 
 
 color("#00ff00") union() {      // verbindet Box mit Hook
-    translate ([-(wanddicke + wanddicke_vogelhaus), wanddicke, wanddicke]) difference() {   // zieht inneren Hook von Hook ab
+    translate ([-(wanddicke + wanddicke_vogelhaus), wanddicke, 0]) difference() {   // zieht inneren Hook von Hook ab
 
         cube([hook_x, hook_y, hook_z]); //äußere Kanten Hook
 
